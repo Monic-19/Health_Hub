@@ -1,44 +1,48 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import Loader from "./Loader"
+import React, { useEffect } from 'react'
 import { motion } from "framer-motion"
+import Navbar from './Navbar'
+import {gsap} from "gsap"
 
 const Hero = () => {
-    const navigate = useNavigate();
+
+    useEffect(() =>{
+        const tl = gsap.timeline({pause: true, delay: 0.1})
+        
+        tl.from(".letter_a , .letter_b", {
+           opacity : 0
+        },"a")
+        tl.to(".letter_a , .letter_b", {
+            marginTop : 0,
+            duration : 0.7,
+            opacity :1
+        },"a")
+        tl.to(".logo_name",{
+            fontSize : "28vh",
+            lineHeight : "28vh",
+            height : "28vh",
+            gap : "4vh",
+            duration : 0.5,
+            letterSpacing : "0vh",
+            top : "84%", 
+        })
+        
+
+    },[])
 
     return (
-        <div className='h-[100vh] w-full flex justify-center items-center'>
-
-            <motion.div
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1, power: "easeIn" }}
-                className='h-[70%] w-[70%] flex flex-col'>
-
-                <div className='h-[90%] w-full'>
-                    <Loader></Loader>
+        <>
+            <Navbar />
+            <div className= 'h-[91vh] relative'>
+                <div className="logo_name flex text-[8vh] font-mono font-bold tracking-wider absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-center  leading-[8vh] h-[8vh]overflow-hidden  ">
+                    <div className="letter flex ">
+                        <h1 className='letter_a mt-[10vh]'>HEALTH</h1>
+                    </div>
+                    <div className="letter flex ml-4">
+                        <h1 className='letter_b mt-[-3vh]'>HUB</h1>
+                    </div>
                 </div>
-
-                <div className='h-[10%] items-center flex flex-col  gap-8 justify-center space-y-2 md:flex-row md:space-x-2 md:space-y-0'>
-                    <motion.button
-                        initial={{ x: -40}}
-                        animate={{ x: 0}}
-                        transition={{ duration: 0.2, power: "easeIn", delay: 1 }}
-                        className="rounded-md bg-black lg:w-[10vw] w-[30vw] px-7 py-3 text-lg font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                        onClick={() => navigate("/login")}>Login</motion.button>
-
-                    <motion.button
-                        initial={{ x: 40 }}
-                        animate={{ x: 0}}
-                        transition={{ duration: 0.2, power: "easeIn", delay: 1 }}
-                        className="rounded-md bg-black lg:w-[10vw] w-[30vw] px-7 py-3 text-lg font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                        onClick={() => navigate("/signup")}>SignUp</motion.button>
-
-                </div>
-            </motion.div>
-
-
-        </div>
+            </div>
+        </>
     )
 }
 
