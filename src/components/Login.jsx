@@ -15,7 +15,8 @@ const Login = () => {
                     <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
                         <motion.h1 initial={{scale : 0}} animate ={{scale : 1}} transition ={{duration : 0.5}} className=' leading-[10vh] text-[10vh] text-center lg:text-[15vh] lg:leading-[15vh] tracking-[-2vw] mr-4 font-extrabold  font-mono '>HH</motion.h1>
                         <div className="mb-2 flex justify-center">
-                            <motion.h1 initial={initialMotion} animate={finalMotion} transition={{duration : 0.3}} className="italic text-center text-3xl font-bold mb-2 text-black">Welcome to Health Hub</motion.h1>
+                            <motion.h1 
+                            initial={initialMotion} animate={finalMotion} transition={{duration : 0.3}} className="italic text-center text-3xl font-bold mb-2 text-black">Welcome to Health Hub</motion.h1>
                         </div>
                         <motion.h2 initial={initialMotion} animate={finalMotion} transition={{duration : 0.4}} className="text-center text-2xl leading-tight text-black">
                             Log in to your account

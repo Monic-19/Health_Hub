@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body::-webkit-scrollbar{
+    display: none;
+}
+
+.c{
+    background-position: center;
+    background-size: contain;
+    border: 2px solid black;
+    cursor: pointer;
+}
+.c1 {background: url(./assets/docvc.webp);}
+.c2 {background: url(./assets/appbook.jpeg);}
+.c3 {background: url(./assets/bookstat.webp);}
+.c4 {background: url(./assets/docters.jpeg);}
