@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { FaArrowRightLong } from "react-icons/fa6";
+import { FaHome } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Loader from "./Loader"
 import {motion} from "framer-motion"
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
     const [name, setName] = useState("");
@@ -10,6 +12,7 @@ const Signup = () => {
     const [password, setPassword] = useState("");
     const initialMotion = {x: 300, opacity : 0};
     const finalMotion = {x : 0, opacity:1};
+    const navigate = useNavigate();
     return (
         <div className='h-[100vh] w-full flex justify-center items-center'>
             <section>
@@ -194,6 +197,13 @@ const Signup = () => {
                                 </button>
                              
                             </motion.div>
+                            <motion.button initial={initialMotion} animate={finalMotion} transition={{duration : 1.4, delay : 0.4}}
+                                    onClick={() => navigate("/")}
+                                        type="button"
+                                        className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80 z-[-10] mt-4"
+                                    >
+                                        Back To Home Page <FaHome className='ml-2' size={16}/>
+                                    </motion.button>
                         </div>
                     </div>
                 </div>

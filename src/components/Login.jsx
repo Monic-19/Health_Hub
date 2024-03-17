@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import { FaArrowRightLong } from "react-icons/fa6";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {motion} from "framer-motion";
+import { FaHome } from "react-icons/fa";
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const initialMotion = {y: 40, sacle : 0, opacity : 0};
     const finalMotion = {y : 0, scale : 1,opacity : 1};
+    const navigate = useNavigate();
     return (
         <div className='h-[100vh] w-full flex justify-center items-center'>
             <section>
@@ -77,12 +79,13 @@ const Login = () => {
                                         Get started <FaArrowRightLong className="ml-2" size={16} />
                                     </motion.button>
                                 </div>
+                            
                             </div>
                         </form>
                         <div className="mt-3 space-y-3">
                             <motion.button initial={initialMotion} animate={finalMotion} transition={{duration : 0.9}}
                                 type="button"
-                                className="relative inline-flex w-full items-center justify-center rounded-md border border-gray-400 bg-white px-3.5 py-2.5 font-semibold text-gray-700 transition-all duration-200 hover:bg-gray-100 hover:text-black focus:bg-gray-100 focus:text-black focus:outline-none"
+                                className="relative inline-flex w-full items-center justify-center rounded-md border border-gray-400 bg-white px-3.5 py-2.5 font-semibold text-gray-700 transition-all duration-200 hover:bg-gray-100 hover:text-black focus:bg-gray-100 focus:text-black focus:outline-none z-10"
                             >
                                 <span className="mr-2 inline-block">
                                     <svg
@@ -96,6 +99,16 @@ const Login = () => {
                                 </span>
                                 Sign in with Google
                             </motion.button>
+
+                            <div>
+                                    <motion.button initial={initialMotion} animate={finalMotion} transition={{duration : 1.4, delay : 0.4}}
+                                    onClick={() => navigate("/")}
+                                        type="button"
+                                        className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80 z-[-10]"
+                                    >
+                                        Back To Home Page <FaHome className='ml-2' size={16}/>
+                                    </motion.button>
+                                </div>
 
                         </div>
                     </div>
