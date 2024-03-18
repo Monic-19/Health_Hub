@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 
+
 const Navbar = () => {
 
   const initial = { y: "-9vh" }
@@ -13,18 +14,18 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <motion.div initial={initial} animate={final} transition={{ duration: 0.3, ease: "easeIn" }} className='h-[9vh]  flex justify-between items-center border-b-2 border-black'>
+    <motion.div initial={initial} animate={final} transition={{ duration: 0.3, ease: "easeIn" }} className='h-[24vh] px-4 flex justify-center items-center border-b-2 border-black lg:h-[9vh] lg:justify-between flex-wrap'>
 
-      <h1 onClick={() => navigate("/")} className='bg-blue-400 p-1 ml-7 font-extrabold font-mono text-4xl cursor-pointer'>HH</h1>
+      <h1 onClick={() => navigate("/")} className='bg-blue-400 p-2 lg:p-1 lg:ml-7 ml-0 font-extrabold font-mono text-5xl lg:text-4xl cursor-pointer'>HH</h1>
 
-      <motion.div initial={subinitial} animate={subfinal} transition={subtrans} className='flex gap-9 text-xl cursor-pointer'>
+      <motion.div initial={subinitial} animate={subfinal} transition={subtrans} className='flex gap-6 flex-wrap lg:gap-9 text-xl cursor-pointer'>
         <NavLink to={"/"} className='hover:font-extrabold'>Home</NavLink>
         <NavLink to={"/about"} className='hover:font-extrabold'>About</NavLink>
         <NavLink to={"/appointment"} className='hover:font-extrabold'>Appointment</NavLink>
         <NavLink to="/login" className='hover:font-extrabold'>Login</NavLink>
       </motion.div>
       
-      <NavLink to={"/contact"} className='mr-7 font-extrabold font-mono text-2xl cursor-pointer'>Contact</NavLink>
+      <NavLink to={"/contact"} className='lg:mr-7 font-extrabold font-mono text-2xl cursor-pointer '>Contact</NavLink>
     </motion.div>
   )
 }
