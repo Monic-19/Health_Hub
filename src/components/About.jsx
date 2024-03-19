@@ -19,7 +19,7 @@ const About = () => {
   return (
     <div className=' min-h-[100vh] w-[100vw]'>
       <Navbar></Navbar>
-      <motion.div initial={{y : "-40vh", opacity : 0}} animate={{y : 0, opacity : 1}} transition={{duration : 0.3, delay : 0.5}} className='min-h-[80vh] w-full p-[5vh]'>
+      <motion.div initial={{scale : 0.4, opacity : 0}} animate={{scale : 1, opacity : 1}} transition={{duration : 0.3, delay : 0.5}} className='min-h-[80vh] w-full p-[5vh]'>
         <Accordion open={alwaysOpen}>
           <AccordionHeader className=' font-mono' onClick={handleAlwaysOpen}>Who Are We?</AccordionHeader>
           <AccordionBody className=" italic flex flex-col gap-3">

@@ -21,7 +21,7 @@ const Navbar = () => {
       <motion.div initial={subinitial} animate={subfinal} transition={subtrans} className='flex gap-6 flex-wrap lg:gap-9 text-xl cursor-pointer'>
         <NavLink to={"/"} className='hover:font-extrabold'>Home</NavLink>
         <NavLink to={"/about"} className='hover:font-extrabold'>About</NavLink>
-        <NavLink to={"/appointment"} className='hover:font-extrabold'>Appointment</NavLink>
+        <NavLink to={"/appointment/all"} className='hover:font-extrabold'>Appointment</NavLink>
         <NavLink to="/login" className='hover:font-extrabold'>Login</NavLink>
       </motion.div>
       
