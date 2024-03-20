@@ -13,7 +13,12 @@ const Contact = () => {
           <div className="container">
             <div
               className="-mx-4 flex flex-wrap justify-center items-center lg:justify-between">
-              <div className="w-full px-4 lg:w-1/2 xl:w-6/12">
+
+              <motion.div
+                initial={{ x : "-50%" }}
+                animate={{ x : 0 }}
+                transition={{ duration: 0.5, ease: "easeIn" }}
+                className="w-full px-4 lg:w-1/2 xl:w-6/12">
                 <div className="mb-12 max-w-[570px] lg:mb-0">
                   <span className="mb-4 block font-semibold text-primary font-mono text-xl">
                     Contact Us
@@ -106,9 +111,13 @@ const Contact = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-              
-              <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
+              </motion.div>
+
+              <motion.div
+                initial={{ scale: 0.3 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.5, ease: "easeIn" }}
+                className="w-full px-4 lg:w-1/2 xl:w-5/12">
                 <div className="relative rounded-lg bg-white p-8 shadow-lg dark:bg-dark-2 sm:p-12">
                   <form>
                     <ContactInputBox
@@ -142,10 +151,10 @@ const Contact = () => {
                     </div>
                   </form>
                   <div>
-                    <motion.span 
-                      initial = {{scale : 0.8}}
-                      animate = {{scale: [0.8, 1.6, 1]}}
-                      transition={{duration : 5 , repeat : Infinity}}
+                    <motion.span
+                      initial={{ scale: 0.8 }}
+                      animate={{ scale: [0.8, 1.6, 1] }}
+                      transition={{ duration: 5, repeat: Infinity }}
                       className="absolute -right-9 -top-10 z-[-1]">
                       <svg
                         width={100}
@@ -165,7 +174,8 @@ const Contact = () => {
 
                   </div>
                 </div>
-              </div>
+              </motion.div>
+
             </div>
           </div>
         </section>
