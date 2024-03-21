@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { motion } from "framer-motion"
 
 const HeroB = () => {
   const doctorFields = [
@@ -18,6 +19,7 @@ const HeroB = () => {
 
   const navigate = useNavigate();
 
+
   return (
     <div className='my-[15vh]'>
 
@@ -27,10 +29,14 @@ const HeroB = () => {
           <h1>Book for in-clinic consultation.</h1>
           <h2>Top, High-skilled doctors.</h2>
         </div>
-        <div className='lg:h-[76%] h-[90%] lg:mt-[1%] mt-[-15vh] flex flex-wrap gap-5 justify-evenly'>
+        <motion.div
+          initial={{ x: "-100%", opacity: 0 }}
+          animate={{ x: "0%", opacity: 1 }}
+          transition={{ duration: 0.7, power: "easeIn" }}
+          className='lg:h-[76%] h-[90%] lg:mt-[1%] mt-[-15vh] flex flex-wrap gap-5 justify-evenly'>
 
           {doctorFields.map((doc, index) => (
-            <div key={index} className='w-full sm:w-[45%] md:w-[30%] lg:w-[20%] bg-blue-200 rounded-xl cursor-pointer'>
+            <div key={index} className='w-full sm:w-[45%] md:w-[30%] lg:w-[20%] bg-blue-200 rounded-xl cursor-pointer' onClick={() => navigate(`/appointment/${doc.title}`)}>
               <div className="h-[70%] w-full"></div>
               <div className="h-[30%] flex flex-col pt-1 border-t-2 border-black px-2 bg-white">
                 <h4 className='text-lg font-bold'>{doc.title}</h4>
@@ -39,13 +45,17 @@ const HeroB = () => {
             </div>
           ))}
 
-        </div>
+        </motion.div>
       </div>
 
 
       <div className='lg:h-[50vh] h-[150vh] lg:my-[5vh] mb-[-15vh] w-full px-[5vw]  flex-col  justify-center items-center '>
 
-        <div className='lg:h-[76%] h-[25%] w-full mt-[1%] flex flex-wrap lg:gap-5  lg:justify-evenly '>
+        <motion.div
+          initial={{ x: "100%", opacity: 0 }}
+          animate={{ x : "0%", opacity: 1 }}
+          transition={{ duration: 0.7, power: "easeIn" }}
+          className='lg:h-[76%] h-[25%] w-full mt-[1%] flex flex-wrap lg:gap-5  lg:justify-evenly '>
 
           {problems.map((problem, index) => (
             <div key={index} className='h-[100%] w-full lg:w-[20%] rounded-xl cursor-pointer mb-[-6vh]'>
@@ -56,7 +66,7 @@ const HeroB = () => {
             </div>
           ))}
 
-        </div>
+        </motion.div>
 
         <div className='lg:h-[20%] h-[5%] mt-[90vh] text-right text-md lg:text-3xl text-lg font-mono leading-0 lg:leading-[5.5vh] lg:mt-[6vh] flex flex-col items-end '>
           <h2>Consult top doctors online.</h2>

@@ -17,7 +17,7 @@ const Appointment = () => {
     "Allergy and Immunology",
   ];
 
-  const [category, setCategory] = useState("all");
+  const [category, setCategory] = useState("All");
   const [state, setState] = useState('');
   const [city, setCity] = useState('');
   const [doctorName, setDoctorName] = useState('');
@@ -50,6 +50,8 @@ const Appointment = () => {
 
           <div className=' border-2 border-black w-[30%] h-full bg-white flex flex-col items-center pt-8 gap-6'>
 
+            <h1 className=''>Search for In-Clinic Appointment </h1>
+
             <div className='w-[75%]'>
               <Input label="State" onChange={(e) => {setState(e.target.value)}} />
             </div>
@@ -62,8 +64,6 @@ const Appointment = () => {
             <div className='w-[75%]'>
             <Input variant="standard" label="Search by doctors name" placeholder="name" onChange={(e) => {setDoctorName(e.target.value)}} />
             </div>
-
-
 
           </div>
 
