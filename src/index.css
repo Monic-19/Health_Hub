@@ -6,6 +6,10 @@ body::-webkit-scrollbar{
     display: none;
 }
 
+.doctor-appointment-box::-webkit-scrollbar{
+    display: none;
+}
+
 .c{
     background-position: center;
     background-size: contain;
