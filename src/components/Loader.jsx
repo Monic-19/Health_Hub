@@ -2,8 +2,9 @@ import gsap from 'gsap';
 import React, { useEffect } from 'react'
 import { useRef } from 'react'
 
-const Animation = () => {
+const Loader = (props) => {
     const ref = useRef(null);
+    console.log(props)
 
     useEffect(() => {
         const tl = gsap.timeline({ repeat: -1 })
@@ -50,10 +51,10 @@ const Animation = () => {
                 <h1 className="logo lg:leading-[35vh] leading-[30vh] text-[25vh] lg:text-[35vh] font-extrabold  font-mono mb-[-3vh] flex justify-center items-center">HH</h1>
 
                 <h1 className="font-mono font-normal text-[5vw] tracking-tighter">Health Hub</h1>
-                <h1 className=" italic text-[5vw] text-xl tracking-wide">&#34;Where care meet convinence&#34;</h1>
+                <h1 className=" italic text-[5vw] text-xl tracking-wide">{props.ans}</h1>
             </div>
         </div>
     )
 }
 
-export default Animation
+export default Loader

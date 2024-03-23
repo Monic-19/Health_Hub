@@ -20,7 +20,7 @@ const Signup = () => {
 
                     <motion.div initial={{x:-300 ,opacity : 0}} animate={{x:0 , opacity : 1}} transition={{duration : 0.5}}  className="relative flex  items-end px-4 pb-10 pt-60 sm:px-6 sm:pb-16 md:justify-center lg:px-8 lg:pb-24  w-[100vw] h-[40vh] lg:h-[80vh] lg:w-[40vw]">
                         <div className="absolute inset-0">
-                            <Loader/>
+                            <Loader ans={"Where care meet convenience"}/>
                         </div>
                         
                         {/* <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
