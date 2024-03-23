@@ -10,7 +10,7 @@ const DoctorInfoBox = ({ doctor }) => {
     const handleOpen = () => setOpen(!open);
 
     const {
-        profileImageUrl, name, degree, specialization, education, clinicAddress, availability, description } = doctor;
+        profileImageUrl, name, degree, specialization, education,state,city, clinicAddress, availability, description } = doctor;
 
     return (
         <motion.div   initial = {{opacity: 0, y : "10%"}}
@@ -52,7 +52,7 @@ const DoctorInfoBox = ({ doctor }) => {
                             Known for their meticulous attention to detail and commitment to excellence,<i>{name}</i> is trusted by patients for their expertise and dedication to improving health outcomes.
 
                             <Typography variant="h6" color="blue-gray" className="mt-5">
-                                Clinic address - {clinicAddress}
+                                Clinic address - {clinicAddress + ` , ${city} , ${state} `}
                             </Typography>
                             <Typography variant="h6" color="blue-gray" className="mt-2">
                                 Available on - {availability}

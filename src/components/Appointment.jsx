@@ -42,6 +42,8 @@ const Appointment = () => {
       degree: "MD, MBBS, FRCS",
       specialization: "Cardiology",
       education: "Harvard Medical School",
+      state : "Uttar Paradesh",
+      city : "Noida",
       clinicAddress: "123 Main Street, Cityville",
       availability: "Monday to Friday",
       description: "Experienced cardiologist specializing in heart conditions.",
@@ -52,6 +54,8 @@ const Appointment = () => {
       degree: "MD, MBBS",
       specialization: "Dermatology",
       education: "Stanford University School of Medicine",
+      state : "Rajasthan",
+      city : "Ajmer",
       clinicAddress: "456 Elm Street, Townsville",
       availability: "Tuesday, Thursday, Saturday",
       description: "Dermatologist providing expert care for skin issues.",
@@ -62,6 +66,8 @@ const Appointment = () => {
       degree: "MD, PhD",
       specialization: "Neurology",
       education: "Yale School of Medicine",
+      state : "Rajasthan",
+      city : "Kishangarh",
       clinicAddress: "789 Oak Avenue, Villagetown",
       availability: "Monday, Wednesday, Friday",
       description: "Neurologist with extensive experience in treating neurological disorders.",
@@ -72,6 +78,8 @@ const Appointment = () => {
       degree: "MD, MBBS",
       specialization: "Pediatrics",
       education: "Columbia University Vagelos College of Physicians and Surgeons",
+      state : "Gujarat",
+      city : "Vadodara",
       clinicAddress: "101 Pine Street, Hamletville",
       availability: "Monday to Saturday",
       description: "Pediatrician providing compassionate care for children of all ages.",
@@ -82,6 +90,8 @@ const Appointment = () => {
       degree: "MD, MBBS, FRCS",
       specialization: "Orthopedics",
       education: "University of California, San Francisco School of Medicine",
+      state : "Haryana",
+      city : "Karnal",
       clinicAddress: "321 Maple Avenue, Suburbia",
       availability: "Wednesday, Thursday, Saturday",
       description: "Orthopedic surgeon specializing in bone and joint disorders.",
@@ -89,6 +99,20 @@ const Appointment = () => {
     // Add more doctor objects as needed
   ];
 
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredDoctors = doctors.filter(doctor => {
+    return (
+      doctor.doctorName?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      doctor.city?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      doctor.state?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      doctor.specialization?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      doctor.timings?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      doctor.date?.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  });
+
+  // console.log(filteredDoctors)
 
 
   return (
@@ -121,7 +145,7 @@ const Appointment = () => {
             animate = {{opacity: 1, x : "0%"}}
             transition={{duration : 0.8, power : "easeIn"}}
             className='doctor-appointment-box bg-blue-300 lg:w-[70%] w-[99%] h-[60%] lg:h-full rounded-3xl lg:ml-0 ml-[1%] p-6 flex gap-3 flex-wrap  overflow-x-scroll justify-evenly scroll-smooth'>
-            {doctors.map((doctor, index) => (
+            {filteredDoctors.map((doctor, index) => (
               <DoctorInfoBox key={index} doctor={doctor} />
             ))}
 
@@ -136,7 +160,7 @@ const Appointment = () => {
             <h1 className=' text-lg font-bold'>Search for In-Clinic Appointment </h1>
 
             <div className='w-[75%]'>
-              <Input value={state} label="State" onChange={(e) => { setState(e.target.value) }} />
+              <Input value={state} label="State" onChange={(e) => { setState(e.target.value); setSearchQuery(e.target.value) }} />
             </div>
             <div className='w-[75%]'>
               <Input value={city} label="City" onChange={(e) => { setCity(e.target.value) }} />
