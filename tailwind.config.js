@@ -7,7 +7,9 @@ module.exports = withMT( {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    fontFamily: {
+      mono: ['Monospace', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
+    },
   },
   plugins: [],
 })
