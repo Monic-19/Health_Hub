@@ -2,7 +2,9 @@ import React from 'react'
 
 const DoctorInfo = () => {
   return (
-    <div className='h-[40vh] w-[40vw] bg-red-500'>Doc infor</div>
+    <div className='h-full w-[100%] '>
+      <h1 className='text-3xl p-5 font-mono h-[10vh] bg-gray-900 text-white'>Your Information</h1>
+    </div>
   )
 }
 
