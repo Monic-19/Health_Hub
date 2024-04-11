@@ -23,12 +23,12 @@ const DoctorAppointments = () => {
       value: "all",
     },
     {
-      label: "Monitored",
-      value: "monitored",
+      label: "Online",
+      value: "online",
     },
     {
-      label: "Unmonitored",
-      value: "unmonitored",
+      label: "Offline",
+      value: "offline",
     },
   ];
 
@@ -83,8 +83,38 @@ const DoctorAppointments = () => {
   ];
 
   const [verified, setVerified] = useState(true);
+  const [selectedTab, setSelectedTab] = React.useState("all");
+  const [searchTerm, setSearchTerm] = React.useState("");
+  const [sortedResults, setSortedResults] = React.useState([]);
+
+  const handleChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+  const handleTabSelect = (value) => {
+    setSelectedTab(value);
+  };
+  
+
+  React.useEffect(() => {
+    let filteredResults = TABLE_ROWS;
+  
+    if (searchTerm) {
+      filteredResults = filteredResults.filter((row) =>
+        row.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+  
+    if (selectedTab === "online") {
+      filteredResults = filteredResults.filter((row) => row.online);
+    } else if (selectedTab === "offline") {
+      filteredResults = filteredResults.filter((row) => !row.online);
+    }
+  
+    setSortedResults(filteredResults);
+  }, [selectedTab, searchTerm]);
 
   return (
+    
     <>
       {verified ? (
         <div className='h-full w-[100%]'>
@@ -95,7 +125,9 @@ const DoctorAppointments = () => {
                 <Tabs value="all" className="w-full md:w-max">
                   <TabsHeader>
                     {TABS.map(({ label, value }) => (
-                      <Tab key={value} value={value}>
+                      <Tab key={value}   
+                      onClick={() => handleTabSelect(value)}
+                      value={value} className='lg:w-[12vw] w-[33%]'>
                         &nbsp;&nbsp;{label}&nbsp;&nbsp;
                       </Tab>
                     ))}
@@ -105,6 +137,8 @@ const DoctorAppointments = () => {
                   <Input
                     label="Search"
                     icon={<FaSearch className="h-5 w-5" />}
+                    value={searchTerm}
+                    onChange={handleChange}
                   />
                 </div>
               </div>
@@ -130,9 +164,9 @@ const DoctorAppointments = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {TABLE_ROWS.map(
+                  {sortedResults.map(
                     ({ img, name, email, job, org, online, date }, index) => {
-                      const isLast = index === TABLE_ROWS.length - 1;
+                      const isLast = index === sortedResults.length - 1;
                       const classes = isLast
                         ? "p-4"
                         : "p-4 border-b border-blue-gray-50";

@@ -20,14 +20,14 @@ const DoctorProfile = () => {
   const [verified, setVerified] = useState(true);
 
   return (
-    <div className='lg:h-full h-[70vh]  w-[100%] relative'>
+    <div className='lg:h-full h-[57vh]  w-[100%] relative'>
       <h1 className='text-3xl p-5 font-mono h-[10vh] bg-gray-900 text-white'>Your Profile {!verified ? "is not verified " : ""}</h1>
       {verified ? (
         <div>
 
           <div className='p-5 relative'> 
 
-            <div className=' lg:w-[35vw] w-full rounded-lg shadow-xl h-[18vh] flex justify-center items-center lg:gap-[4vw] gap-[10vw] p-4 bg-gray-200 cursor-pointer absolute top-[5vh] left-[2vh] font-mono'>
+            <div className=' lg:w-[35vw] w-[90%] rounded-lg shadow-xl lg:h-[18vh] h-[22vh] flex justify-center items-center lg:gap-[4vw] gap-[10vw] p-4 bg-gray-200 cursor-pointer absolute top-[5vh] left-[2vh] font-mono'>
               <Avatar src={doctor_info.profileImageUrl} alt="avatar" size="xxl" withBorder={true} className="p-0.5" />
               <div className=' h-full text-lg '>
 
@@ -39,7 +39,8 @@ const DoctorProfile = () => {
               </div>
             </div>
 
-            <div className='h-[10vh] bg-gray-900 rounded-lg w-[25vw] absolute top-[9vh] left-[40vw] shadow-xl p-6 text-xl font-mono'>
+            <div className='h-[10vh] bg-gray-900 rounded-lg lg:w-[25vw]
+             absolute lg:top-[9vh] lg:left-[40vw] top-[32vh] left-[10vw] shadow-xl p-6 text-xl font-mono'>
               <div className='flex items-center gap-4'>
                 <h1 className='text-white'>Rating :</h1>
                 <IoIosStarOutline color='yellow' size={"24px"} />

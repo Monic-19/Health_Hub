@@ -33,8 +33,8 @@ const DoctorDashboard = () => {
         <DoctorNavbar />
       </div>
 
-      <div className="flex lg:flex-row flex-col">
-        <div className="lg:h-[78vh] h-[70vh] lg:w-[30vw] border-r-2 border-black w-full flex flex-col ">
+      <div className="flex lg:flex-row  flex-col-reverse">
+        <div className="lg:h-[78vh] h-[70vh] lg:w-[30vw] border-r-2 border-black w-full flex flex-col z-10 ">
           <div className="h-[10vh] bg-gray-900 lg:w-[29.9vw] w-full p-2 text-white cursor-pointer">
             <h1 className="text-4xl font-mono pb-1">Dashboard</h1>
             <div className="flex gap-[5vw]">
@@ -80,7 +80,7 @@ const DoctorDashboard = () => {
 
         </div>
 
-        <div className="lg:mt-0 mt-8  lg:h-[78vh] lg:w-[70vw]">
+        <div className="lg:mt-0 lg:h-[78vh] lg:w-[70vw]">
           <Outlet ></Outlet>
         </div>
 
