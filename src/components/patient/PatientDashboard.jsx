@@ -10,7 +10,7 @@ const PatientDashboard = () => {
 
             <div >
                 <Tabs value="df">
-                    <TabsHeader className="lg:w-[80vw] w-full ml-[10vw] mt-[5vh]">
+                    <TabsHeader className="lg:w-[80vw] w-full lg:ml-[10vw] ml-[0vw]  mt-[5vh]">
 
 
                         <NavLink to={"/patient/profile"} className="flex items-center hover:text-black hover:font-bold transition-colors w-[25vw] lg:w-[20vw]">
@@ -39,7 +39,7 @@ const PatientDashboard = () => {
                 </Tabs>
             </div>
 
-            <div className='h-[70vh] w-[80vw] bg-red-100 ml-[10vw] mt-[5vh]'>
+            <div className='h-[70vh] lg:w-[80vw] w-full  ml-[0vw] lg:ml-[10vw] mt-[5vh] overflow-y-scroll bg-red-200 patient-outlet  rounded-xl'>
                 <Outlet></Outlet>
             </div>
 

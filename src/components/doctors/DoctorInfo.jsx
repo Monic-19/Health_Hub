@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Card, Typography, Input, Checkbox, Button, } from "@material-tailwind/react";
+import { motion } from "framer-motion"
 
 const DoctorInfo = () => {
   const [name, setName] = useState('');
@@ -21,10 +22,16 @@ const DoctorInfo = () => {
   };
 
   return (
-    <div className='h-[70vh] w-[100%] '>
+    <div
+
+      className='h-[70vh] w-[100%] '>
       <h1 className='text-3xl p-5 font-mono h-[10vh] bg-gray-900 text-white'>Your Information</h1>
 
-      <div className=" h-[67vh] w-[100%] flex justify-center">
+      <motion.div
+        initial={{ x : -300, opacity : 0}}
+        animate={{ x : 0, opacity : 1 }}
+        transition={{ duration: 0.5 }}
+        className=" h-[67vh] w-[100%] flex justify-center">
         <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96 overflow-y-scroll lg:pb-[0vh] pb-[10vh] docInputForm">
           <div className="mb-1 flex flex-col gap-4">
             <Typography variant="h6" color="blue-gray" className="-mb-3">
@@ -92,7 +99,7 @@ const DoctorInfo = () => {
               value={clinicAddress}
             />
 
-<Typography variant="h6" color="blue-gray" className="-mb-3">
+            <Typography variant="h6" color="blue-gray" className="-mb-3">
               Your Fees per visit
             </Typography>
             <Input
@@ -172,7 +179,7 @@ const DoctorInfo = () => {
                 className: "before:content-none after:content-none",
               }}
               onChange={(e) => setSpecialty(e.target.value)}
-          value={specialty}
+              value={specialty}
             />
 
 
@@ -199,7 +206,7 @@ const DoctorInfo = () => {
           </Button>
 
         </form>
-      </div >
+      </motion.div >
 
     </div >
   )

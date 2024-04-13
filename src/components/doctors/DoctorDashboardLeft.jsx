@@ -7,6 +7,7 @@ import {
   } from "@material-tailwind/react";
   import { FaCaretSquareDown } from "react-icons/fa";
   import { FaCaretSquareUp } from "react-icons/fa";
+  import { motion } from "framer-motion"
 
 const DoctorDashboardLeft = ({icon,text,count,percent}) => {
     const curper = 45 - percent;

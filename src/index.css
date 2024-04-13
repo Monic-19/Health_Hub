@@ -6,7 +6,7 @@ body::-webkit-scrollbar{
     display: none;
 }
 
-.doctor-appointment-box::-webkit-scrollbar, .docInputForm::-webkit-scrollbar{
+.doctor-appointment-box::-webkit-scrollbar, .docInputForm::-webkit-scrollbar,  .patient-outlet::-webkit-scrollbar{
     display: none;
 }
 

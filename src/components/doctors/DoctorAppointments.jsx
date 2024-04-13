@@ -1,20 +1,7 @@
 import React, { useState } from 'react'
 import { FaSearch } from "react-icons/fa";
-import {
-  Card,
-  CardHeader,
-  Input,
-  Typography,
-  Button,
-  CardBody,
-  Chip,
-  CardFooter,
-  Tabs,
-  TabsHeader,
-  Tab,
-  Avatar,
-
-} from "@material-tailwind/react";
+import { Card, CardHeader, Input, Typography, Button, CardBody, Chip, CardFooter, Tabs, TabsHeader, Tab, Avatar, } from "@material-tailwind/react";
+import { motion } from "framer-motion"
 
 const DoctorAppointments = () => {
   const TABS = [
@@ -93,54 +80,63 @@ const DoctorAppointments = () => {
   const handleTabSelect = (value) => {
     setSelectedTab(value);
   };
-  
+
 
   React.useEffect(() => {
     let filteredResults = TABLE_ROWS;
-  
+
     if (searchTerm) {
       filteredResults = filteredResults.filter((row) =>
         row.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
-  
+
     if (selectedTab === "online") {
       filteredResults = filteredResults.filter((row) => row.online);
     } else if (selectedTab === "offline") {
       filteredResults = filteredResults.filter((row) => !row.online);
     }
-  
+
     setSortedResults(filteredResults);
   }, [selectedTab, searchTerm]);
 
   return (
-    
+
     <>
       {verified ? (
         <div className='h-full w-[100%]'>
-          {/* <h1 className='text-3xl p-5 font-mono h-[10vh] bg-gray-900 text-white'>Your Appointments</h1> */}
           <Card className="h-full w-full">
             <CardHeader floated={false} shadow={false} className="rounded-none ">
               <div className="flex flex-col items-center justify-between gap-4 md:flex-row ">
-                <Tabs value="all" className="w-full md:w-max">
-                  <TabsHeader>
-                    {TABS.map(({ label, value }) => (
-                      <Tab key={value}   
-                      onClick={() => handleTabSelect(value)}
-                      value={value} className='lg:w-[12vw] w-[33%]'>
-                        &nbsp;&nbsp;{label}&nbsp;&nbsp;
-                      </Tab>
-                    ))}
-                  </TabsHeader>
-                </Tabs>
-                <div className="w-full md:w-72">
+                <motion.div 
+                     initial={{ x : -300, opacity : 0}}
+                     animate={{ x : 0, opacity : 1 }}
+                     transition={{ duration: 0.5 }}>
+                  <Tabs value="all" className="w-full md:w-max">
+                    <TabsHeader>
+                      {TABS.map(({ label, value }) => (
+                        <Tab key={value}
+                          onClick={() => handleTabSelect(value)}
+                          value={value} className='lg:w-[12vw] w-[33%]'>
+                          &nbsp;&nbsp;{label}&nbsp;&nbsp;
+                        </Tab>
+                      ))}
+                    </TabsHeader>
+                  </Tabs>
+
+                </motion.div>
+                <motion.div 
+                     initial={{ x : 300, opacity : 0}}
+                     animate={{ x : 0, opacity : 1 }}
+                     transition={{ duration: 0.5 }}
+                  className="w-full md:w-72">
                   <Input
                     label="Search"
                     icon={<FaSearch className="h-5 w-5" />}
                     value={searchTerm}
                     onChange={handleChange}
                   />
-                </div>
+                </motion.div>
               </div>
             </CardHeader>
             <CardBody className="overflow-scroll px-0">
@@ -172,7 +168,11 @@ const DoctorAppointments = () => {
                         : "p-4 border-b border-blue-gray-50";
 
                       return (
-                        <tr key={name}>
+                        <motion.tr 
+                        initial={{ y : -50, opacity : 0}}
+                        animate={{ y : 0, opacity : 1 }}
+                        transition={{ duration: 0.5 }}
+                          key={name}>
                           <td className={classes}>
                             <div className="flex items-center gap-3">
                               <Avatar src={img} alt={name} size="sm" />
@@ -221,7 +221,7 @@ const DoctorAppointments = () => {
                         </IconButton>
                       </Tooltip>
                     </td> */}
-                        </tr>
+                        </motion.tr>
                       );
                     },
                   )}
