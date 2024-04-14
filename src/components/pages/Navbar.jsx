@@ -14,7 +14,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <motion.div initial={initial} animate={final} transition={{ duration: 0.3, ease: "easeIn" }} className='h-[24vh] px-4 flex justify-center items-center border-b-2 border-black lg:h-[9vh] lg:justify-between flex-wrap'>
+    <motion.div initial={initial} animate={final} transition={{ duration: 0.3, ease: "easeIn" }} className='h-[24vh] px-4 flex justify-center items-center border-b-2 border-black lg:h-[9vh] lg:justify-between flex-wrap bg-white'>
 
       <h1 onClick={() => navigate("/")} className='bg-blue-400 p-2 lg:p-1 lg:ml-7 ml-0 font-extrabold font-mono text-5xl lg:text-4xl cursor-pointer'>HH</h1>
 

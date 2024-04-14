@@ -12,12 +12,12 @@ const DoctorInfo = () => {
   const [availableSlots, setAvailableSlots] = useState('');
   const [education, setEducation] = useState('');
   const [educationProof, setEducationProof] = useState('');
+  const [clinicPhoto, setClinicPhoto] = useState('');
   const [experience, setExperience] = useState('');
   const [specialty, setSpecialty] = useState('');
   const [medicalField, setMedicalField] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Submit form data or perform further validation
     alert("form is submitted")
   };
 
@@ -28,8 +28,8 @@ const DoctorInfo = () => {
       <h1 className='text-3xl p-5 font-mono h-[10vh] bg-gray-900 text-white'>Your Information</h1>
 
       <motion.div
-        initial={{ x : -300, opacity : 0}}
-        animate={{ x : 0, opacity : 1 }}
+        initial={{ x: -300, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
         className=" h-[67vh] w-[100%] flex justify-center">
         <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96 overflow-y-scroll lg:pb-[0vh] pb-[10vh] docInputForm">
@@ -97,6 +97,16 @@ const DoctorInfo = () => {
               }}
               onChange={(e) => setClinicAddress(e.target.value)}
               value={clinicAddress}
+            />
+
+            <Typography variant="h6" color="blue-gray" className="-mb-3">
+              Clinic Picture
+            </Typography>
+            <Input
+              type="file"
+              size="lg"
+              onChange={(e) => setClinicPhoto(e.target.value)}
+              value={clinicPhoto}
             />
 
             <Typography variant="h6" color="blue-gray" className="-mb-3">

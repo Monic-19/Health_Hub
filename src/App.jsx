@@ -22,6 +22,7 @@ import AdminProfile from './components/admin/AdminProfile'
 import AdminStats from './components/admin/AdminStats'
 import AdminDoctorsList from './components/admin/AdminDoctorsList'
 import AdminAllDoctorLists from './components/admin/AdminAllDoctorLists'
+import AdminVerifyDoctor from './components/admin/AdminVerifyDoctor'
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
           <Route path='/about' element={<About/>}/> 
           <Route path='/contact' element={<Contact/>}/> 
           <Route path='/appointment/:id' element={<Appointment/>}/> 
+          <Route path={'/verify/:id'} element={<AdminVerifyDoctor/> }/>
           <Route path='/doctor' element={<DoctorDashboard/>}>
                <Route path='profile' element={<DoctorProfile/>}></Route>
                <Route path='info' element={<DoctorInfo/>}></Route>
