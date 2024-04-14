@@ -23,6 +23,9 @@ const Navbar = () => {
         <NavLink to={"/about"} className='hover:font-extrabold'>About</NavLink>
         <NavLink to={"/appointment/all"} className='hover:font-extrabold'>Appointment</NavLink>
         <NavLink to="/login" className='hover:font-extrabold'>Login</NavLink>
+        <NavLink to="/admin" className='hover:font-extrabold'>Admin</NavLink>
+        <NavLink to="/patient" className='hover:font-extrabold'>Patient</NavLink>
+        <NavLink to="/doctor" className='hover:font-extrabold'>Doctor</NavLink>
       </motion.div>
       
       <NavLink to={"/contact"} className='lg:mr-7 font-extrabold font-mono text-2xl cursor-pointer '>Contact</NavLink>
