@@ -18,28 +18,25 @@ function NavList() {
   return (
     <>
       <Tabs value="df">
-        <TabsHeader className="lg:w-[50vw] w-full">
+        <TabsHeader className="lg:w-[60vw] w-full">
 
-          
-            <NavLink to={"/doctor/profile"} className="flex items-center hover:text-black hover:font-bold transition-colors w-[25vw] lg:w-[12vw]">
+            <NavLink to={"/doctor/profile"} className="flex items-center hover:text-black hover:font-bold transition-colors w-[25vw] lg:w-[15vw]">
             <Tab value={"Profile"}>Profile</Tab>
             </NavLink>
-          
-
-          
-            <NavLink to={"/doctor/info"} className="flex items-center hover:text-black hover:font-bold transition-colors w-[25vw] lg:w-[12vw]">
-            <Tab value={"Information"}>Information </Tab>
+        
+            <NavLink to={"/doctor/info"} className="flex items-center hover:text-black hover:font-bold transition-colors w-[25vw] lg:w-[20vw]">
+            <Tab value={"Information"}>Personal Information </Tab>
             </NavLink>
-         
 
+            <NavLink to={"/doctor/clinic"} className="flex items-center hover:text-black hover:font-bold transition-colors w-[25vw] lg:w-[20vw]">
+            <Tab value={"Clinic_Information"}>Clinic Information </Tab>
+            </NavLink>
           
-            <NavLink to={"/doctor/appointments"} className="flex items-center hover:text-black hover:font-bold transition-colors w-[25vw] lg:w-[12vw]">
+            <NavLink to={"/doctor/appointments"} className="flex items-center hover:text-black hover:font-bold transition-colors w-[25vw] lg:w-[15vw]">
             <Tab value={"Appointments"}>Appointments</Tab>
             </NavLink>
           
-
-          
-            <NavLink to={"/doctor/stats"} className="flex items-center hover:text-black hover:font-bold  transition-colors w-[25vw] lg:w-[12vw]">
+            <NavLink to={"/doctor/stats"} className="flex items-center hover:text-black hover:font-bold  transition-colors w-[25vw] lg:w-[15vw]">
             <Tab value={"Stats"}>Stats</Tab>
             </NavLink>
           
